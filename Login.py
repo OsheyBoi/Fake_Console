@@ -2,8 +2,11 @@ import sys
 import time
 import random
 import string
+from idlelib.mainmenu import menudefs
+
 import Accountstatus
 import incrypter
+import ServerStatus
 global username, User
 User = ("NA")
 username = (str("na"))
@@ -14,6 +17,21 @@ alphabet = string.ascii_lowercase
 secret_key = "qazplmwsxokndcijbrefvtghuy"
 # Create the encryption table
 cipher_table = str.maketrans(alphabet, secret_key)
+def menu():
+    time.sleep(1)
+    print("What  would you like to do?")
+    print("[1] Access Account Status")
+    print("[2] Access Server status")
+    print("[3] User Setting")
+    print("[4] Log Out")
+    option = input()
+    if option == str(1):
+        Accountstatus.userid(username)
+        Accountstatus.start_program()
+    if option == str(2):
+        ServerStatus.start(username)
+    if option == str(3):
+        incrypter.main_menu()
 def encrypt_password(password):
     """Converts plain text password into the ciphered version."""
     return password.lower().translate(cipher_table)
@@ -44,20 +62,10 @@ if checklogin(username, inputcode):
     print ("Access granted")
     time.sleep(1)
     print ("Loading...")
+    time.sleep(1)
+    print("Welcome " + username)
+    time.sleep(1)
+    menu()
 else:
     print ("Access Denied")
     sys.exit()
-time.sleep(1)
-print ("Welcome " + username)
-time.sleep(1)
-print ("What  would you like to do?")
-print ("[1] Access Account Status")
-print ("[2] Access Server status")
-print ("[3] User Setting")
-print ("[4] Log Out")
-option = input()
-if option == str(1):
-    Accountstatus.userid(username)
-    Accountstatus.start_program()
-if option == str(3):
-    incrypter.main_menu()

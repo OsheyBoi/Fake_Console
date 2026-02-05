@@ -1,5 +1,6 @@
 import string
 import os
+import Login
 
 # --- GLOBAL CIPHER CONFIG ---
 # These are placed here so all functions can use them
@@ -75,7 +76,7 @@ def main_menu():
         elif choice == "3":
             view_accounts()
         elif choice == "4":
-            print("Goodbye!")
+            Login.menu()
             break
         else:
             print("Invalid choice.")
