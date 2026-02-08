@@ -31,7 +31,7 @@ def menu():
     if option == str(2):
         ServerStatus.start(username)
     if option == str(3):
-        incrypter.main_menu()
+        incrypter.main_menu(username)
 def encrypt_password(password):
     """Converts plain text password into the ciphered version."""
     return password.lower().translate(cipher_table)

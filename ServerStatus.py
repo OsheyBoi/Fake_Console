@@ -5,7 +5,7 @@ def start(user):
     print("Loading...")
     time.sleep(1)
     print("Checking if User has Access Stats")
-    if user == "OsheyBoi":
+    if user == "Oshey":
         print("Access granted")
         print("Server Status: Online")
         print("Location: Unknown")

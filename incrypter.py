@@ -1,7 +1,7 @@
 import string
 import os
 import Login
-
+import time
 # --- GLOBAL CIPHER CONFIG ---
 # These are placed here so all functions can use them
 alphabet = string.ascii_lowercase
@@ -60,26 +60,29 @@ def view_accounts():
                 print(f"{stored_user:<15} | {plain_pass}")
 
 
-def main_menu():
-    while True:
-        print("\n[1] Add New User to login.txt")
-        print("[2] Encode text to Secret Mapping")
-        print("[3] View All Users/Passwords (Unencrypted)")
-        print("[4] Exit")
+def main_menu(user):
+    print("Loading...")
+    time.sleep(1)
+    if user == "Oshey":
+        while True:
+            print("\n[1] Add New User to login.txt")
+            print("[2] Encode text to Secret Mapping")
+            print("[3] View All Users/Passwords (Unencrypted)")
+            print("[4] Exit")
 
-        choice = input("\nSelect an option: ")
+            choice = input("\nSelect an option: ")
 
-        if choice == "1":
-            add_user()
-        elif choice == "2":
-            encode_string()
-        elif choice == "3":
-            view_accounts()
-        elif choice == "4":
-            Login.menu()
-            break
-        else:
-            print("Invalid choice.")
+            if choice == "1":
+                add_user()
+            elif choice == "2":
+                encode_string()
+            elif choice == "3":
+                view_accounts()
+            elif choice == "4":
+                Login.menu()
+                break
+            else:
+                print("Invalid choice.")
 
 
 # Run the menu
